@@ -152,7 +152,7 @@ class kcpp_api:
                                 # logging.info(f"**NEW CONTENT **: {new_content}")        
                                 received_so_far += new_content
                                 # logging.info(f"***received_so_far***: {received_so_far}")  
-                                # some models keep infintitely generating it own ###instruction and ###response, this aborts generation when that happens
+                                # stop infinte generation of ###instruction and ###response by the model, this aborts generation when that happens
                                 if new_content == '###' or '###' in received_so_far :
                                     logging.info(f"'###' found in the string : {new_content}")         
                                     stop_event.set()
